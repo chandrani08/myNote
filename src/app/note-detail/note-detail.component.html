@@ -1,0 +1,35 @@
+<div>
+  <form>
+    <div *ngIf="editTitle" class="form-group">
+      <label>Title</label>
+      <input type="input" class="form-control" name="title"  placeholder="title" [(ngModel)]="note.title">
+    </div>
+    <h3 *ngIf="!editTitle" (click)="onTitleClick()">{{note.title}}</h3>
+    <div class="form-group">
+      <label>User Id</label>
+      <input type="input" class="form-control" name="_id" placeholder="id" [(ngModel)]="note._id">
+    </div>
+    <div class="form-group">
+      <label>Username</label>
+      <input type="input" class="form-control" name="username"  placeholder="username" [(ngModel)]="note.username">
+    </div>
+    <div class="formgroup">
+      <label>Content</label>
+      <textarea class="form-control" rows="5" name="content" [(ngModel)]="note.content">
+    </textarea>
+      <br>
+    </div>
+    <div class="form-group">
+      <label>Tags</label>
+      <input type="input" class="form-control" name="tags"  placeholder="tags" [(ngModel)]="note.tags">
+    </div>
+    <div class="form-group">
+      <label>Date Created</label>
+      <input type="input" class="form-control" name="date_created" placeholder="date_created" [(ngModel)]="note.date_created">
+    </div>
+    
+    
+    <button type="button"(click)="updateNote()" class="btn btn-primary">Update</button>
+    <button type="button"(click)="deleteNote()" class = "btn btn-danger">Delete</button>
+  </form>
+</div>
