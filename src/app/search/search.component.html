@@ -1,43 +1,24 @@
-   <!-- <div class = "container">
-<div class="m-3 text-center">
-  <form class="form-inline"
-  (ngSubmit)="getSearchNotes()">
-  <div class="form-group">
-    <input type="search"
-    class="form-control"
-    placeholder="Enter search tag"
-    name="search"
-    [(ngModel)]="tag"
-    required>
-  </div>
-  <button type="submit"
-  class="btn btn-primary">
-  Search
-</button>
-</form>
-
-</div>
-</div>  
- -->
-
-
-  <!-- <div>
-    <input type="text" [(ngModel)]="tag">
-    <div *ngFor = "let note of notes | filter:tag" >
-      <p>
-        {{note.tags}}
-      </p>
-    </div>
-
-</div>   -->
 
 <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-4">
         <label for="searchByTag">Search by tag:</label>
         <input class="form-control" type="text" placeholder="Tag" [(ngModel)]="searchCriteria" />
-    <hr>
+    <br>
         <button class="btn btn-default" (click)="getSearchNotes()">Search</button>
         
         <button class="btn btn-default" (click)="clearSearch()">Clear</button>        
+    <br>
+    <br>
+    <!-- <div class="col-sm-4"> -->
+    <h5 style ="font-weight: bold">Search Results: </h5>
+      <!-- <note-list [notes]="notes"></note-list> -->
+      <search-list (SelectNote)="onSelectResult($event)"[notes]="notes"></search-list>
+     <!-- </div>    -->
+    </div> 
+    <div class="row">
+      <div class="col-sm-8">
+        <search-detail *ngIf="selectedResult"[note]="selectedResult"></search-detail>
+      </div>
     </div>
-</div>
+</div> 
+

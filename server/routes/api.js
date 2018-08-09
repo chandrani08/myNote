@@ -7,23 +7,24 @@ const Users= require('../models/users');//importing users model
 //const db = "mongodb://cmitra:pwd123@ds121251.mlab.com:21251/mynote";
 
 //To connect to local database:
-var mongoDB='mongodb://localhost/mynote';
+const db = "mongodb://localhost/mynote";
 
 mongoose.Promise = global.Promise;// to avoid warnings that mongoose might throw
 
 mongoose.connect(db,function(err){
-  if(err){
-        console.error("Error!" + err);
-    }
-
-});
-//To connect to local database:
-mongoose.connect(mongoDB,function(err){
    if(err){
-       console.error("Error!" + err);
-    }
+         console.error("Error!" + err);
+     }
 
-});
+ });
+
+//  //To connect to local database:
+// mongoose.connect(mongoDB,function(err){
+//  if(err){
+//       console.error("Error!" + err);
+//    }
+
+// });
 
 
 // a GET request to read data from database
@@ -58,7 +59,10 @@ router.post('/notes', function(req,res){
      newNote.username = req.body.username;
      newNote.title = req.body.title;
      newNote.content = req.body.content;
-     newNote.tags = req.body.tags;
+
+     var arr = req.body.tags.split(',');
+
+     newNote.tags = arr;
      newNote.date_created = req.body.date_created;
      
 
@@ -104,21 +108,26 @@ router.delete('/notes/:id', function(req,res){
  });
 
 
- router.get ('/getSearchNote', function(req, res, next){
-     var searchQuery = {};
+ router.get('/query', function(req, res){
+    console.log("In backend query function");
+     
+    var searchQuery = {};
+    console.log(req.query.tags);
 
-     if (req.query.name)
-     searchQuery = { tags: req.query.tags};
+    if (req.query.tags)
+    searchQuery = { tags: req.query.tags};
 
-     Notes.find(searchQuery, function(err, note){
-         if (err){
-             res.status(400);
-             res.send();
-         }
-
-         console.log("returning all the notes.");
-         res.send(notes);
-     })
+    Notes.find(searchQuery) 
+        .exec(function(err, notes){
+        if (err){
+            res.status(400);
+            res.send("Error finding note");
+        }
+        else {
+            console.log("returning matched notes");
+             res.json(notes);
+        }
+    }) 
  });
 
 
@@ -140,7 +149,7 @@ router.delete('/notes/:id', function(req,res){
 //  router.get('/users/:id', function(req,res){
 //     console.log("Get request for a single user");
 //     Users.findById(req.params.id)
-//     .exec(function(err, user){
+//    .exec(function(err, user){
 //         if(err){
 //             console.log("Error retrieving user");
 //          }else {

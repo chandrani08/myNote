@@ -13,6 +13,8 @@ import { NoteListComponent } from './note-list/note-list.component';
 import { NoteDetailComponent } from './note-detail/note-detail.component';
 import { NotesComponent } from './notes/notes.component';
 import { SearchComponent } from './search/search.component';
+import { SearchListComponent } from './search-list/search-list.component';
+import { SearchDetailComponent } from './search-detail/search-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { SearchComponent } from './search/search.component';
    // UsersComponent,
     NoteListComponent,
     NoteDetailComponent,
+    SearchListComponent,
+    SearchDetailComponent,
     
   ],
   imports: [
