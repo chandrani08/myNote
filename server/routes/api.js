@@ -4,7 +4,7 @@ const mongoose = require ('mongoose');
 const Notes = require('../models/notes');//importing notes model
 const Users= require('../models/users');//importing users model
 
-//const db = "mongodb://cmitra:pwd123@ds121251.mlab.com:21251/mynote";
+//const db = "mongodb://<username>:<password>@ds121251.mlab.com:21251/mynote";
 
 //To connect to local database:
 const db = "mongodb://localhost/mynote";
