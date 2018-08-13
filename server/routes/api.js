@@ -18,13 +18,6 @@ mongoose.connect(db,function(err){
 
  });
 
-//  //To connect to local database:
-// mongoose.connect(mongoDB,function(err){
-//  if(err){
-//       console.error("Error!" + err);
-//    }
-
-// });
 
 
 // a GET request to read data from database

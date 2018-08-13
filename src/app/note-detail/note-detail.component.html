@@ -7,7 +7,7 @@
     <h3 *ngIf="!editTitle" (click)="onTitleClick()">{{note.title}}</h3>
     <div class="form-group">
       <label>User Id</label>
-      <input type="input" class="form-control" name="_id" placeholder="id" [(ngModel)]="note._id">
+      <input type="input" class="form-control" name="_id" placeholder="id" [(ngModel)]="note._id" disabled>
     </div>
     <div class="form-group">
       <label>Username</label>
@@ -29,7 +29,7 @@
     </div>
     
     
-    <button type="button"(click)="updateNote()" class="btn btn-primary">Update</button>
+    <button type="button"(click)="updateNote()" class="btn btn-success">Update</button>
     <button type="button"(click)="deleteNote()" class = "btn btn-danger">Delete</button>
   </form>
 </div>

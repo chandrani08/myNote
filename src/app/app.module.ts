@@ -4,9 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
-
-//import { UsersComponent } from './users/users.component';
 import { HttpModule } from '@angular/http';
 import { HomeComponent } from './home/home.component';
 import { NoteListComponent } from './note-list/note-list.component';
@@ -25,7 +22,6 @@ import { SearchDetailComponent } from './search-detail/search-detail.component';
     NoteDetailComponent,
     HomeComponent,
     NotesComponent,
-   // UsersComponent,
     NoteListComponent,
     NoteDetailComponent,
     SearchListComponent,

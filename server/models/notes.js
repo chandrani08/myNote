@@ -6,8 +6,7 @@ const notesSchema = new Schema({
     username: String,
     title: String,
     content: String,
-    tags: [String],//},
-    //{timestamps: true
+    tags: [String],
     date_created: { type:Date,default: Date.now }
     
 

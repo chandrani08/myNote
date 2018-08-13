@@ -1,13 +1,10 @@
-<!-- <div class="row">
-  <div class="col-sm-3"> -->
+<h5 *ngIf="noResult" >No matching results: </h5>
+
     <ul class="nav nav-pills nav-stacked">
       <li (click)="onSelectResult(note)" *ngFor="let note of notes">
         <a style="cursor:pointer">{{note.title}}</a>
       </li>
     </ul>
-    <!-- <search-list (SelectResult)="onSelectResult($event)"[notes]="notes"></search-list>
-    <search-detail *ngIf="selectedResult"[note]="selectedResult"></search-detail>
-  </div>
-</div> -->
+   
 
 

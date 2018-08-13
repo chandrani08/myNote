@@ -14,7 +14,7 @@ export class SearchDetailComponent implements OnInit {
   
   
 
-  private editTitle: boolean = false;
+  private clickOk: boolean = true;
   private updateNoteEvent = new EventEmitter();
   private deleteNoteEvent = new EventEmitter();
 
@@ -25,7 +25,8 @@ export class SearchDetailComponent implements OnInit {
   ngOnInit() {
   }
 
-  clearNote(){
-    
+  onClickOk(){
+    this.clickOk = false;
   }
+  
 }

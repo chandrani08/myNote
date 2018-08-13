@@ -9,11 +9,9 @@
         <button class="btn btn-default" (click)="clearSearch()">Clear</button>        
     <br>
     <br>
-    <!-- <div class="col-sm-4"> -->
+    
     <h5 style ="font-weight: bold">Search Results: </h5>
-      <!-- <note-list [notes]="notes"></note-list> -->
       <search-list (SelectNote)="onSelectResult($event)"[notes]="notes"></search-list>
-     <!-- </div>    -->
     </div> 
     <div class="row">
       <div class="col-sm-8">

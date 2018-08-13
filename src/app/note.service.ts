@@ -1,13 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Http, Response, Headers, RequestOptions, URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/map';
-//import 'rxjs/add/operator/catch';
-//import 'rxjs/add/observable/throw';
 import { Note } from './note';
-import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators/catchError';
-import { map } from 'rxjs/operators/map';
-import { NotesComponent } from './notes/notes.component';
+import { Observable } from 'rxjs'
 
 @Injectable()
 export class NoteService {
@@ -22,7 +17,7 @@ private _getQueryUrl = "/api/query";
 
 constructor(private _http: Http) { }
 
-getNote(searchCriteria:any) : Observable<Note[]>{ //new
+getNote(searchCriteria:any) : Observable<Note[]>{ 
    console.log("Note Service:getNote");
    let params: URLSearchParams = new URLSearchParams();
    params.set('tags',searchCriteria);
@@ -35,7 +30,7 @@ getNote(searchCriteria:any) : Observable<Note[]>{ //new
           return Observable.throw(error.json ? error.json().error : error || 'Server error')
 
      });
- } //new
+ } 
 
 
 getQuery(searchCriteria:any){
@@ -49,15 +44,7 @@ getQuery(searchCriteria:any){
   .map((res:any) => {
   console.log(res.json());
   return res.json();
-  //})
-  //.map(res => {
-  //  console.log(res.json());
-  //})
-  // seems to work with above lines too, but map doesn't work by itself
-  //.subscribe(res => {
-    //console.log(res.json());
-    //nothing
-  });
+    });
 
 }
 
